@@ -1,0 +1,21 @@
+$kind: http-request
+name: http://7777/api/changes-history
+description: ""
+url: http://127.0.0.1:7777/api/changes-history?recordId=101
+method: GET
+queryParams:
+  recordId: "101"
+body:
+  type: json
+  content: "{\r
+
+    \  \"recordId\": 414,\r
+
+    \  \"fieldName\": \"quantity\",\r
+
+    \  \"oldValue\": \"10\",\r
+
+    \  \"newValue\": \"15\"\r
+
+    }"
+order: 1000
