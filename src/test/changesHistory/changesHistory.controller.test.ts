@@ -74,8 +74,9 @@ describe('Changes History API integration tests', () => {
       expect(saved!.changedAt).toBeInstanceOf(Date);
 
       expect(fetch).toHaveBeenCalledWith(
-        'http://record-service.test/api/purchases/101',{
-           signal: expect.any(AbortSignal),
+        'http://record-service.test/api/purchases/101',
+        {
+          signal: expect.any(AbortSignal),
         },
       );
     });
