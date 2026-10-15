@@ -158,7 +158,7 @@ describe('Changes History API integration tests', () => {
       expect(await ChangesHistory.countDocuments()).toBe(0);
     });
 
-    it('returns 400 when the related PurchaseRecord does not exist', async () => {
+    it('returns 404 when the related PurchaseRecord does not exist', async () => {
       mockFetch.mockResolvedValue({
         ok: false,
         status: 404,
@@ -173,7 +173,7 @@ describe('Changes History API integration tests', () => {
           newValue: '10',
         });
 
-      expect(response.status).toBe(400);
+      expect(response.status).toBe(404);
       expect(await ChangesHistory.countDocuments()).toBe(0);
     });
 

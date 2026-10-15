@@ -8,6 +8,7 @@ import {
 } from '@jest/globals';
 
 import { ValidationException } from '../../exceptions/ValidationException.js';
+import { NotFoundException } from '../../exceptions/NotFoundException.js';
 import { ChangesHistoryField } from '../../changesHistory/ChangesHistoryField.js';
 
 const mockRepository = {
@@ -84,7 +85,7 @@ describe('Changes History Service', () => {
         status: 404,
       } as Response);
 
-      await expect(service.create(dto)).rejects.toThrow(ValidationException);
+      await expect(service.create(dto)).rejects.toThrow(NotFoundException);
       expect(repository.create).not.toHaveBeenCalled();
     });
 

@@ -3,6 +3,7 @@ import { ChangesHistoryCreateDto } from './dto/ChangesHistoryCreateDto.js';
 import { ChangesHistoryDto } from './dto/ChangesHistoryInfoDto.js';
 import * as repository from './changesHistory.repository.js';
 import { ValidationException } from '../exceptions/ValidationException.js';
+import { NotFoundException } from '../exceptions/NotFoundException.js';
 
 async function recordExists(id: number): Promise<boolean> {
   const RECORD_SERVICE_URL = process.env.RECORD_SERVICE_URL;
@@ -37,7 +38,7 @@ export const create = async (
   const exists = await recordExists(dto.recordId);
 
   if (!exists) {
-    throw new ValidationException(
+    throw new NotFoundException(
       `PurchaseRecord ${dto.recordId} does not exist`,
     );
   }
