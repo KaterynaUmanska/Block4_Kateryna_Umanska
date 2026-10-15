@@ -75,16 +75,19 @@ export const counts = async (
   try {
     const recordIds = req.body?.recordIds;
 
-    if (
-      !Array.isArray(recordIds) ||
-      !recordIds.every(
-        (id: unknown) =>
-          Number.isSafeInteger(id) && Number(id) > 0,
-      )
-    ) {
-      throw new ValidationException(
-        'recordIds must be an array of positive integers',
-      );
+  if (
+    !Array.isArray(recordIds) ||
+    recordIds.length > 1000 ||
+    !recordIds.every(
+      (id: unknown) =>
+        typeof id === 'number' &&
+        Number.isSafeInteger(id) &&
+        id > 0,
+    )
+  ) {
+  throw new ValidationException(
+    'recordIds must be an array of at most 1000 positive integers',
+  );
     }
 
     const result = await service.countByRecordIds(recordIds);

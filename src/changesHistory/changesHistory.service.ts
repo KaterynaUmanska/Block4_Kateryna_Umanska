@@ -11,8 +11,11 @@ async function recordExists(id: number): Promise<boolean> {
     throw new Error('RECORD_SERVICE_URL is not configured');
   }
 
-  const response = await fetch(
+    const response = await fetch(
     `${RECORD_SERVICE_URL}/api/purchases/${id}`,
+    {
+      signal: AbortSignal.timeout(5000),
+    },
   );
 
   if (response.status === 404) {

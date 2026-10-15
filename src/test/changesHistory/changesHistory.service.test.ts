@@ -70,7 +70,9 @@ describe('Changes History Service', () => {
       const result = await service.create(dto);
 
       expect(mockFetch).toHaveBeenCalledWith(
-        'http://record-service.test/api/purchases/101',
+        'http://record-service.test/api/purchases/101',{
+          signal: expect.any(AbortSignal),
+        },
       );
       expect(repository.create).toHaveBeenCalledWith(dto);
       expect(result).toBe('history-id');
