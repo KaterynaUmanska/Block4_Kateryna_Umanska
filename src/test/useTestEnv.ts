@@ -6,7 +6,7 @@ interface TestEnv {
   MONGO_PORT: number;
 }
 
-const ERROR_MESSAGE = '❌ Missing or invalid test environment variable:';
+const ERROR_MESSAGE = 'Missing or invalid test environment variable:';
 
 export const useTestEnv = (): TestEnv => {
   dotenvConfig({ path: `.env.test` });
