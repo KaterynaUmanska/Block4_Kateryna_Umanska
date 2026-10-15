@@ -4,7 +4,7 @@ interface Env {
   MONGO_ADDRESS: string;
 }
 
-const ERROR_MESSAGE = '❌ Missing or invalid environment variable:';
+const ERROR_MESSAGE = 'Missing or invalid environment variable:';
 
 export const useEnv = (): Env => {
   const { PORT, HOST, MONGO_ADDRESS } = process.env;
