@@ -120,7 +120,7 @@ PurchaseRecord зберігається в PostgreSQL у Block2, а ChangesHisto
 
 ## База даних
 
-Додаток використовує MongoDB Atlas - хмарний сервіс для зберігання та керування документною базою даних MongoDB
+Додаток підтримує MongoDB Atlas і локальний запуск MongoDB через Docker Compose.
 
 Колекція MongoDB changes_history.
 
